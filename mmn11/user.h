@@ -1,4 +1,4 @@
-////Name Almog Shtaigmann:  ID: 209401553
+////Name:  ID: 
 // Define user system calls functions & common used user functions
 struct stat;
 struct rtcdate;
@@ -25,7 +25,7 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
-int cps153(void);
+int cps171(void);
 
 // ulib.c
 int stat(const char*, struct stat*);

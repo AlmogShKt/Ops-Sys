@@ -1,5 +1,5 @@
-////Name Almog Shtaigmann:  ID: 209401553
-//We defined here sys_cps153 to call cps() defined in proc file.
+//Name:  ID: 
+//We defined here sys_cps171 to call cps() defined in proc file.
 #include "types.h"
 #include "x86.h"
 #include "defs.h"
@@ -93,7 +93,7 @@ sys_uptime(void)
 }
 
 int
-sys_cps153(void)
+sys_cps171(void)
 {
-  return cps153();
+  return cps171();
 }

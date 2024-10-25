@@ -105,7 +105,7 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
-extern int sys_cps153(void);
+extern int sys_cps171(void);
 
 static int (*syscalls[])(void) = {
 // Adding "new" "SYSCALLfork(fork)" without changing syscall.h
@@ -130,7 +130,7 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
-[22] sys_cps153,
+[22] sys_cps171,
 };
 
 void
