@@ -1,4 +1,4 @@
-//Name:  ID: 
+////Name Almog Shtaigmann:  ID: 209401553
 // Implementation of all the syscalls. I implemented here the cps call.
 // For each process in the processes table, we print it's name, pid, state and parent's pid.
 #include "types.h"
@@ -25,7 +25,7 @@ extern void trapret(void);
 
 static void wakeup1(void *chan);
 
-int cps171() {
+int cps153() {
     struct proc *p;
 
     sti();

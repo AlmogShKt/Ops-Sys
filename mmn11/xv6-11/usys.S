@@ -1,6 +1,3 @@
-////Name Almog Shtaigmann:  ID: 209401553
-// Define SYSCALL in assembly.
-// we can define new SYSCALLs here, SYSCALLCPS153 sets %eax register to be 22 which is sys_cps153.
 #include "syscall.h"
 #include "traps.h"
 
@@ -22,14 +19,6 @@
     ret
 
 // You need to add your new SYSCALL by the same way(here is a good place)
-#define SYSCALLCPS153(name) \
-  .globl name; \
-  name: \
-    movl $22, %eax; \
-    int $T_SYSCALL; \
-    ret
-
-
 
 
 SYSCALLFORK(fork) //instead of SYSCALL(fork) !!!
@@ -54,4 +43,3 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
-SYSCALLCPS153(cps153)

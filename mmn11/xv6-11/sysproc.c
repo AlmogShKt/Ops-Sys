@@ -1,5 +1,3 @@
-////Name Almog Shtaigmann:  ID: 209401553
-//We defined here sys_cps153 to call cps() defined in proc file.
 #include "types.h"
 #include "x86.h"
 #include "defs.h"
@@ -90,10 +88,4 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
-}
-
-int
-sys_cps153(void)
-{
-  return cps153();
 }
