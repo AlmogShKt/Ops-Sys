@@ -1,4 +1,4 @@
-// Name Almog Shtaigmann:  ID: 209401553
+//Name: Almog Shtaigmann  ID: 209401553 
 
 #include "types.h"
 #include "stat.h"
@@ -7,6 +7,6 @@
 
 int
 main(int argc, char *argv[]) {
-    cps153();
-    exit();
+	cps153();
+	exit();
 }

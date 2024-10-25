@@ -1,5 +1,5 @@
-////Name Almog Shtaigmann:  ID: 209401553
-
+// Name: Almog Shtaigmann  ID: 209401553 
+// Here, we define sys_cps153 to invoke the cps() function, which is defined in the proc file.
 #include "types.h"
 #include "x86.h"
 #include "defs.h"
@@ -10,81 +10,90 @@
 #include "proc.h"
 
 int
-sys_fork(void) {
-    return fork();
+sys_fork(void)
+{
+  return fork();
 }
 
 int
-sys_exit(void) {
-    exit();
-    return 0;  // not reached
+sys_exit(void)
+{
+  exit();
+  return 0;  // not reached
 }
 
 int
-sys_wait(void) {
-    return wait();
+sys_wait(void)
+{
+  return wait();
 }
 
 int
-sys_kill(void) {
-    int pid;
+sys_kill(void)
+{
+  int pid;
 
-    if (argint(0, &pid) < 0)
-        return -1;
-    return kill(pid);
+  if(argint(0, &pid) < 0)
+    return -1;
+  return kill(pid);
 }
 
 int
-sys_getpid(void) {
-    return myproc()->pid;
+sys_getpid(void)
+{
+  return myproc()->pid;
 }
 
 int
-sys_sbrk(void) {
-    int addr;
-    int n;
+sys_sbrk(void)
+{
+  int addr;
+  int n;
 
-    if (argint(0, &n) < 0)
-        return -1;
-    addr = myproc()->sz;
-    if (growproc(n) < 0)
-        return -1;
-    return addr;
+  if(argint(0, &n) < 0)
+    return -1;
+  addr = myproc()->sz;
+  if(growproc(n) < 0)
+    return -1;
+  return addr;
 }
 
 int
-sys_sleep(void) {
-    int n;
-    uint ticks0;
+sys_sleep(void)
+{
+  int n;
+  uint ticks0;
 
-    if (argint(0, &n) < 0)
-        return -1;
-    acquire(&tickslock);
-    ticks0 = ticks;
-    while (ticks - ticks0 < n) {
-        if (myproc()->killed) {
-            release(&tickslock);
-            return -1;
-        }
-        sleep(&ticks, &tickslock);
+  if(argint(0, &n) < 0)
+    return -1;
+  acquire(&tickslock);
+  ticks0 = ticks;
+  while(ticks - ticks0 < n){
+    if(myproc()->killed){
+      release(&tickslock);
+      return -1;
     }
-    release(&tickslock);
-    return 0;
+    sleep(&ticks, &tickslock);
+  }
+  release(&tickslock);
+  return 0;
 }
 
 // return how many clock tick interrupts have occurred
 // since start.
 int
-sys_uptime(void) {
-    uint xticks;
+sys_uptime(void)
+{
+  uint xticks;
 
-    acquire(&tickslock);
-    xticks = ticks;
-    release(&tickslock);
-    return xticks;
+  acquire(&tickslock);
+  xticks = ticks;
+  release(&tickslock);
+  return xticks;
 }
 
 int
-sys_cps153(void) {
-    return cps153();
+sys_cps153(void)
+{
+  return cps153();
 }

@@ -1,3 +1,5 @@
+// Name: Almog Shtaigmann  ID: 209401553
+// SYSCALLCPS153 sets %eax register to be 22 which is sys_cps153.
 #include "syscall.h"
 #include "traps.h"
 
@@ -26,8 +28,6 @@
     int $T_SYSCALL; \
     ret
 
-
-
 SYSCALLFORK(fork) //instead of SYSCALL(fork) !!!
 //SYSCALL(fork)
 SYSCALL(exit)
@@ -50,4 +50,4 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
-SYSCALL(cps153)
+SYSCALLCPS153(cps153)

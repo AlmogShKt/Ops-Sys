@@ -1,3 +1,5 @@
+//Name: Almog Shtaigmann  ID: 209401553 
+//new"SYSCALLCPS"
 #include "types.h"
 #include "defs.h"
 #include "param.h"
@@ -128,7 +130,7 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
-[SYS_cps153]   sys_cps153,
+[22] sys_cps153,
 };
 
 void

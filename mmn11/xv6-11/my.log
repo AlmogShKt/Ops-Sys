@@ -1,0 +1,11 @@
+ps
+name 	 pid 	 state 	 	 ppid 
+init 	 1  	 SLEEPING 	 0 
+ sh 	 2  	 SLEEPING 	 1 
+ ps 	 3  	 RUNNING 	 2 
+ $ ps
+name 	 pid 	 state 	 	 ppid 
+init 	 1  	 SLEEPING 	 0 
+ sh 	 2  	 SLEEPING 	 1 
+ ps 	 4  	 RUNNING 	 2 
+ 

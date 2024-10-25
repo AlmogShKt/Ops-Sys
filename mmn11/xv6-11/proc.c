@@ -1,3 +1,5 @@
+//Name: Almog Shtaigmann  ID: 209401553 
+
 #include "types.h"
 #include "defs.h"
 #include "param.h"
@@ -22,29 +24,31 @@ extern void trapret(void);
 
 static void wakeup1(void *chan);
 
-int cps153() {
-//    struct proc *p;
-//
-//    sti();
-//    acquire(&ptable.lock);
-//    cprintf("name \t pid \t state \t \t ppid \n");
-//
-//    // Loop over process table looking for process
-//    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
-//        // As explained in the xv6 manual - After main initializes several devices and subsystems, it creates the first process by calling userinit.
-//        // userinit is called only for the very first process, therfore it's pid is always 1, and it doesn't have any parent.
-//
-//        if (p->state == SLEEPING) {
-//            cprintf("%s \t %d  \t SLEEPING \t %d \n ", p->name, p->pid, p->pid == 1 ? 0 : p->parent->pid);
-//        } else if (p->state == RUNNING) {
-//            cprintf("%s \t %d  \t RUNNING \t %d \n ", p->name, p->pid, p->pid == 1 ? 0 : p->parent->pid);
-//        }
-//    }
-//
-//    release(&ptable.lock);
+int
+cps153() {
+    struct proc *p;
+
+    sti();
+    acquire(&ptable.lock);
     cprintf("name \t pid \t state \t \t ppid \n");
 
-    return 22; //cps syscall number
+    // For each process 
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        // As described in the xv6 manual: After main initializes various devices and subsystems,
+        // it creates the first process by calling userinit. 
+        // The userinit function is invoked only for the initial process, 
+        // giving it a fixed pid of 1 and no parent process.
+
+        if (p->state == SLEEPING) {
+            cprintf("%s \t %d  \t SLEEPING \t %d \n ", p->name, p->pid, p->pid == 1 ? 0 : p->parent->pid);
+        } else if (p->state == RUNNING) {
+            cprintf("%s \t %d  \t RUNNING \t %d \n ", p->name, p->pid, p->pid == 1 ? 0 : p->parent->pid);
+        }
+    }
+
+    release(&ptable.lock);
+    // Return the cps sys call number
+    return 22;
 }
 
 
