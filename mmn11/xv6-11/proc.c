@@ -518,7 +518,7 @@ procdump(void) {
     }
 }
 
-int cps() {
+int cps153() {
     cprintf("almog tst \n");
     return 22;
 }
